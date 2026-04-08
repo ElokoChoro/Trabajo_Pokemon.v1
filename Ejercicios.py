@@ -94,3 +94,38 @@ tipo_veloz = df.groupby('Tipo 1')['Velocidad'].mean().idxmax()
 #print(df_ranking.head())
 #print(f"\nEl tipo de Pokémon mas veloz en promedio es: {tipo_veloz}") 
 
+# ----------------------
+# 7. ANALISIS EXPLORATORIA EDA
+# ----------------------
+
+promedio = df.groupby('Tipo 1')[['Ataque', 'Defensa']].mean()
+mayor_ataque = promedio['Ataque'].idxmax()
+mayor_defensa = promedio['Defensa'].idxmax()
+print(f"El tipo de pokemon con mayor promedio de Ataque: {mayor_ataque} ({promedio['Ataque'].max():.2f})")
+print(f"El tipo de pokemon con mayor promedio de Defensa: {mayor_defensa} ({promedio['Defensa'].max():.2f})")
+
+correlacion = df['Ataque'].corr(df['Velocidad'])
+print(f"Coeficiente de correlación (Ataque vs Velocidad): {correlacion:.2f}")
+
+
+dispersion_ps = df.groupby('Tipo 1')['PS'].std().fillna(0).sort_values(ascending=False)
+print("Dispersión de PS por tipo (Desviación estándar):")
+print(dispersion_ps)
+
+
+print("Generando gráficos")
+#ESTE CREA EL GRAFICO DEL ATAQUE
+sns.boxplot(y=df['Ataque'], color='orange')
+plt.title('Outliers de Ataque')
+plt.show()
+
+#ESTE CREA EL GRAFICO DE PS
+sns.boxplot(y=df['PS'], color='pink')
+plt.title('Outliers de PS')
+plt.show()
+
+
+
+
+
+
