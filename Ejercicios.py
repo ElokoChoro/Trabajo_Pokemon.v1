@@ -130,6 +130,28 @@ plt.title('Valores de PS')
 plt.show()
 
 
+# ----------------------
+# 8. EJERCICIOS DE INTERPRETACION 
+# ----------------------
+
+
+Justificacion primer apartado:
+Interpreta los resultados de los gráficos y estadísticas: ¿qué conclusiones puedes sacar sobre los Pokémon de la primera generación?
+*Los pokemones de tipo lucha tienden a tener una mayor promedio de ataque a diferencia de los tipo fantasmas o bicho
+mientras que los tipo roca tienen el mayor promedio de defensa
+*La correlacion entre ataque y velocidad  es muy debil ya que ambas estadísticas no tienen nada que ver entre ellas
+*En los graficos los tipo normal tienen la mayor dispersion en los PS
+*En general depende del tipo que sea el pokemon ya que segun el que sea puede ser mas fuerte en alguna estadísticas que en otras
+
+
+Justificacion segundo apartado:
+¿Qué tipo de Pokémon sería "más balanceado" según las estadísticas? ¿Y el más especializado?
+*Los pokemones de tipo planta o agua se ven mas balaceados segun las estadisticas y graficos, ya que presentan valores de ataque,
+defensa,velocidad y PS mas moderados y similares
+*Unos de los pokemones mas especializado segun las estadisticas y graficos serian los tipo lucha, ya que presentan valores muy altos
+en los ataques pero con una defensa muy baja, o los tipo roca tienen mucha defensa pero una velocidad de ataque muy baja
+
+
 
 
 
