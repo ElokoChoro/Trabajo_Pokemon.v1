@@ -9,7 +9,7 @@ df = pd.read_csv('pokemon_primera_gen.csv')
 df.columns = df.columns.str.strip()
 df = df.drop_duplicates()
 df['Tipo 2'] = df['Tipo 2'].fillna('Ninguno')
-
+(df['Tipo 1'] != 'Hada') & (df['Tipo 2'] != 'Hada')
 # ----------------------
 # 2. FILTRADO Y SELECCIÓN
 # ----------------------
@@ -98,30 +98,35 @@ tipo_veloz = df.groupby('Tipo 1')['Velocidad'].mean().idxmax()
 # 7. ANALISIS EXPLORATORIA EDA
 # ----------------------
 
-promedio = df.groupby('Tipo 1')[['Ataque', 'Defensa']].mean()
+#Existen tipos de Pokémon que tienden a tener mayor ataque o defensa? Justifica con estadísticas.
+promedio = df.groupby('Tipo 1')[['Ataque', 'Defensa']].mean() #El .groupby es para seperar en diferentes grupos segun lo que colocas 
 mayor_ataque = promedio['Ataque'].idxmax()
 mayor_defensa = promedio['Defensa'].idxmax()
 print(f"El tipo de pokemon con mayor promedio de Ataque: {mayor_ataque} ({promedio['Ataque'].max():.2f})")
 print(f"El tipo de pokemon con mayor promedio de Defensa: {mayor_defensa} ({promedio['Defensa'].max():.2f})")
 
+#¿Hay correlación entre ataque y velocidad? Calcula el coeficiente de correlación.
 correlacion = df['Ataque'].corr(df['Velocidad'])
 print(f"Coeficiente de correlación (Ataque vs Velocidad): {correlacion:.2f}")
 
+#¿Qué tan dispersos están los PS dentro de cada tipo? (compara la desviación estándar de PS por tipo)
+desviacion_ps = df.groupby('Tipo 1')['PS'].std()
+desviacion_ps = desviacion_ps.fillna(0)
+desviacion_ordenada = desviacion.sport_values(ascending = false) 
+print("Desviación estándar de PS por tipo:")
+print(desviacion_ordenada)
 
-dispersion_ps = df.groupby('Tipo 1')['PS'].std().fillna(0).sort_values(ascending=False)
-print("Dispersión de PS por tipo (Desviación estándar):")
-print(dispersion_ps)
-
+#Identifica posibles outliers en los valores de ataque y PS usando boxplots.
 
 print("Generando gráficos")
 #ESTE CREA EL GRAFICO DEL ATAQUE
-sns.boxplot(y=df['Ataque'], color='orange')
-plt.title('Outliers de Ataque')
-plt.show()
+sns.boxplot(y=df['Ataque'], color='orange') # EL .BOXPLOT CREA UN DIAGRA DE CAJA 
+plt.title('Valores de Ataque')
+plt.show() 
 
 #ESTE CREA EL GRAFICO DE PS
 sns.boxplot(y=df['PS'], color='pink')
-plt.title('Outliers de PS')
+plt.title('Valores de PS')
 plt.show()
 
 
