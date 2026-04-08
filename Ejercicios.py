@@ -76,4 +76,12 @@ plt.show()
 # ----------------------
 # 5. MANIPULACIÓN
 # ----------------------
+df['Poder Total'] = df['Ataque'] + df['Defensa'] + df['Velocidad'] + df['PS']
+top_pokemones_con_mas_poder= df.sort_values(by='Poder Total', ascending=False)
+
+# ----------------------
+# 6. AGRUPAMIENTO Y ANALISIS POR GRUPO 
+# ----------------------
+resumen_de_ataque_por_tipo = df.groupby('Tipo 1')['Ataque'].agg(['mean', 'median', 'std'])
+tipo_veloz = df.groupby('Tipo 1')['Velocidad'].mean().idxmax()
 
