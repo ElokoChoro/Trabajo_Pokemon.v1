@@ -1,4 +1,5 @@
-Trabajo Práctico - Análisis de Datos Pokémon 1ra Generación
+#Trabajo Práctico - Análisis de Datos Pokémon 1ra Generación
+
 Hola, este es nuestro trabajo práctico de análisis de datos usando Python. La tarea consistía en cargar un dataset con los Pokémon de la primera generación y usar la librería Pandas para limpiar los datos, calcular estadísticas y finalmente usar Matplotlib y Seaborn para crear distintos gráficos.
 
 A continuación, explicamos lo que hicimos en cada parte del código:
