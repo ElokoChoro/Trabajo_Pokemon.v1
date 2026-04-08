@@ -5,7 +5,10 @@ import seaborn as sns
 # ----------------------
 # 1. CARGA Y LIMPIEZA
 # ----------------------
-df = pd.read_csv("pokemon_primera_gen.csv")
+df = pd.read_csv('pokemon_primera_gen.csv')
+df.columns = df.columns.str.strip()
+df = df.drop_duplicates()
+df['Tipo 2'] = df['Tipo 2'].fillna('Ninguno')
 
 # ----------------------
 # 2. FILTRADO Y SELECCIÓN
@@ -31,7 +34,7 @@ print(df.loc[df["Velocidad"].idxmin()])
 
 #¿Cuantos pokemons tienen 2 tipos?
 print("El numero de pokemons con 2 tipos es:")
-print(df[df["Tipo 2"].notna()].shape[0])
+print(df[df["Tipo 2"] != NINGUNO].shape[0])
 
 #rango de los PS
 print("El rango de los PS es:")
