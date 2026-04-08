@@ -9,7 +9,7 @@ df = pd.read_csv('pokemon_primera_gen.csv')
 df.columns = df.columns.str.strip()
 df = df.drop_duplicates()
 df['Tipo 2'] = df['Tipo 2'].fillna('Ninguno')
-df['Tipo 1'] != 'Hada') & (df['Tipo 2'] != 'Hada']
+df['Tipo 1'] != 'Hada') & (df['Tipo 2'] != 'Hada')]
 # ----------------------
 # 2. FILTRADO Y SELECCIÓN
 # ----------------------
@@ -34,7 +34,7 @@ print(df.loc[df["Velocidad"].idxmin()])
 
 #¿Cuantos pokemons tienen 2 tipos?
 print("El numero de pokemons con 2 tipos es:")
-print(df[df["Tipo 2"] != 'NINGUNO'].shape[0])
+print(df[df["Tipo 2"] != 'Ninguno'].shape[0])
 
 #rango de los PS
 print("El rango de los PS es:")
@@ -112,7 +112,7 @@ print(f"Coeficiente de correlación (Ataque vs Velocidad): {correlacion:.2f}")
 #¿Qué tan dispersos están los PS dentro de cada tipo? (compara la desviación estándar de PS por tipo)
 desviacion_ps = df.groupby('Tipo 1')['PS'].std()
 desviacion_ps = desviacion_ps.fillna(0)
-desviacion_ordenada = desviacion.sport_values(ascending = False) 
+desviacion_ordenada = desviacion.sort_values(ascending = False) 
 print("Desviación estándar de PS por tipo:")
 print(desviacion_ordenada)
 
