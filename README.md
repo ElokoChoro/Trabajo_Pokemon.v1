@@ -27,4 +27,6 @@ Para esta parte, creamos una nueva columna llamada "Poder Total" que suma todas 
 ## 7. Análisis Exploratorio (EDA)
 En esta última sección profundizamos un poco más en los datos. Buscamos qué tipos de Pokémon tienden a tener el mayor ataque y defensa promedio. También calculamos el coeficiente de correlación entre el ataque y la velocidad para ver si están relacionados. Ordenamos los tipos de Pokémon según qué tan dispersos están sus PS y, para terminar, generamos un par de diagramas de caja adicionales para identificar visualmente si existen "valores atípicos" (outliers) en las estadísticas de Ataque y PS.
 
+## 8. Interpretación y Conclusiones
+Finalmente, analizamos los resultados arrojados por el código. Concluimos que no existe una correlación estricta entre ser rápido y tener mucho ataque, y detectamos outliers masivos (como los Puntos de Salud de Chansey). Además, determinamos gracias a las medias y desviaciones estándar que tipos como Agua tienden a ser los más estadísticamente balanceados, mientras que tipos como Roca o Eléctrico son altamente especializados en Defensa y Velocidad, respectivamente.
 Eso es todo lo que pide la tarea. Esperamos que esté bien estructurado y que los gráficos ayuden a entender mejor cómo se distribuyen las estadísticas en la primera generación.
