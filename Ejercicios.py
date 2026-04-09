@@ -9,7 +9,8 @@ df = pd.read_csv('pokemon_primera_gen.csv')
 df.columns = df.columns.str.strip()
 df = df.drop_duplicates()
 df['Tipo 2'] = df['Tipo 2'].fillna('Ninguno')
-df = df[(df['Tipo 1'] != 'Hada') & (df['Tipo 2'] != 'Hada')]
+df['Tipo 1'] = df['Tipo 1'].replace('Hada', 'Normal')
+df['Tipo 2'] = df['Tipo 2'].replace('Hada', 'Ninguno')
 # ----------------------
 # 2. FILTRADO Y SELECCIÓN
 # ----------------------
@@ -140,7 +141,7 @@ plt.show()
 '''
 Justificacion primer apartado:
 Interpreta los resultados de los gráficos y estadísticas: ¿qué conclusiones puedes sacar sobre los Pokémon de la primera generación?
-*Los pokemones de tipo lucha tienden a tener una mayor promedio de ataque a diferencia de los tipo fantasmas o bicho
+*Los pokemones de tipo lucha tienden a tener una mayor promedio de ataque a diferencia de los tipo fantasma o bicho
 mientras que los tipo roca tienen el mayor promedio de defensa
 *La correlacion entre ataque y velocidad  es muy debil ya que ambas estadísticas no tienen nada que ver entre ellas
 *En los graficos los tipo normal tienen la mayor dispersion en los PS
