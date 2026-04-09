@@ -80,25 +80,26 @@ plt.show()
 # 5. MANIPULACIÓN
 # ----------------------
 df['Poder Total'] = df['Ataque'] + df['Defensa'] + df['Velocidad'] + df['PS']
-# Se sumara los stats base del pokemones para ver quién es el más fuerte de la 1ra gen
+# Se suman los stats base de los pokemones para ver quién es el más fuerte de la 1ra gen
 top_pokemones_con_mas_poder= df.sort_values(by='Poder Total', ascending=False)
 
 # ----------------------
 # 6. AGRUPAMIENTO Y ANALISIS POR GRUPO 
 # ----------------------
-# Usamos std para ver si los tipos son consistentes o tienen mucha diferencia de stats entre los pokemones 
 resumen_de_ataque_por_tipo = df.groupby('Tipo 1')['Ataque'].agg(['mean', 'median', 'std'])
 tipo_veloz = df.groupby('Tipo 1')['Velocidad'].mean().idxmax()
-#al terminar el code agregen este print para los dos item (5,6):
-# print("--- Los 5 Pokemones más fuertes ---")
-#print(df_ranking.head())
-#print(f"\nEl tipo de Pokémon mas veloz en promedio es: {tipo_veloz}") 
+
+print("--- Los 5 Pokemones más fuertes ---")
+print(top_pokemones_con_mas_poder[['Nombre', 'Poder Total']].head())
+print(f"\nEl tipo de Pokémon mas veloz en promedio es: {tipo_veloz}") 
 
 # ----------------------
 # 7. ANALISIS EXPLORATORIA EDA
 # ----------------------
 
 #Existen tipos de Pokémon que tienden a tener mayor ataque o defensa? Justifica con estadísticas.
+
+print("\n--ANALISIS EXPLORATORIO--")
 promedio = df.groupby('Tipo 1')[['Ataque', 'Defensa']].mean() #El .groupby es para seperar en diferentes grupos segun lo que colocas 
 mayor_ataque = promedio['Ataque'].idxmax()
 mayor_defensa = promedio['Defensa'].idxmax()
@@ -106,10 +107,12 @@ print(f"El tipo de pokemon con mayor promedio de Ataque: {mayor_ataque} ({promed
 print(f"El tipo de pokemon con mayor promedio de Defensa: {mayor_defensa} ({promedio['Defensa'].max():.2f})")
 
 #¿Hay correlación entre ataque y velocidad? Calcula el coeficiente de correlación.
+
 correlacion = df['Ataque'].corr(df['Velocidad'])
 print(f"Coeficiente de correlación (Ataque vs Velocidad): {correlacion:.2f}")
 
 #¿Qué tan dispersos están los PS dentro de cada tipo? (compara la desviación estándar de PS por tipo)
+
 desviacion_ps = df.groupby('Tipo 1')['PS'].std()
 desviacion_ps = desviacion_ps.fillna(0)
 desviacion_ordenada = desviacion_ps.sort_values(ascending = False) 
@@ -134,7 +137,7 @@ plt.show()
 # 8. EJERCICIOS DE INTERPRETACION 
 # ----------------------
 
-
+'''
 Justificacion primer apartado:
 Interpreta los resultados de los gráficos y estadísticas: ¿qué conclusiones puedes sacar sobre los Pokémon de la primera generación?
 *Los pokemones de tipo lucha tienden a tener una mayor promedio de ataque a diferencia de los tipo fantasmas o bicho
@@ -150,7 +153,7 @@ Justificacion segundo apartado:
 defensa,velocidad y PS mas moderados y similares
 *Unos de los pokemones mas especializado segun las estadisticas y graficos serian los tipo lucha, ya que presentan valores muy altos
 en los ataques pero con una defensa muy baja, o los tipo roca tienen mucha defensa pero una velocidad de ataque muy baja
-
+'''
 
 
 
