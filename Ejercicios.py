@@ -22,7 +22,7 @@ print(df[["Nombre", "Tipo 1", "Ataque", "Velocidad"]])
 # ----------------------
 print("promedio de ataque de todos los pokemones")
 print(df["Ataque"].mean())
-print("Mediana de ataque de todos los pokemons")
+print("Mediana de ataque de todos los pokemones")
 print(df["Ataque"].median())
 print("Moda de ataque de todos los pokemones")
 print(df["Ataque"].mode())
@@ -34,7 +34,7 @@ print("El pokemon con menor velocidad es:")
 print(df.loc[df["Velocidad"].idxmin()])
 
 #¿Cuantos pokemons tienen 2 tipos?
-print("El numero de pokemons con 2 tipos es:")
+print("El numero de pokemones con 2 tipos es:")
 print(df[df["Tipo 2"] != 'Ninguno'].shape[0])
 
 #rango de los PS
@@ -150,7 +150,7 @@ mientras que los tipo roca tienen el mayor promedio de defensa
 
 Justificacion segundo apartado:
 ¿Qué tipo de Pokémon sería "más balanceado" según las estadísticas? ¿Y el más especializado?
-*Los pokemones de tipo planta o agua se ven mas balaceados segun las estadisticas y graficos, ya que presentan valores de ataque,
+*Los pokemones de tipo planta o agua se ven mas balanceados segun las estadisticas y graficos, ya que presentan valores de ataque,
 defensa,velocidad y PS mas moderados y similares
 *Unos de los pokemones mas especializado segun las estadisticas y graficos serian los tipo lucha, ya que presentan valores muy altos
 en los ataques pero con una defensa muy baja, o los tipo roca tienen mucha defensa pero una velocidad de ataque muy baja
